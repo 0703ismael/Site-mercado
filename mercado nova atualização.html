@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>MERCADO NA MÃO - Login/Compras</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos Comuns para ambas as seções */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: 
+…
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Cadastro - Supermercado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+ <a href="file:///E:/BKP%20NOVA%20CASA/bkp/Downloads/supermecado%20(1).html"target="_blank">Ver Projeto</a>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #008080 0%, #00b3b3 100%); /* Gradiente moderno */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .auth-container { /* Renomeado de .login-container para ser mais genérico*/
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 400%;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+
+    .auth-container h1 {
+      color: #008080;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .input-group input {
+      width: calc(100% - 20px);
+      padding: 12px 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #008080;
+      box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.2);
+      outline: none;
+    }
+
+    .auth-button { /* Renomeado de .login-button */
+      width: 100%;
+      padding: 15px;
+      background-color: #008080;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 20px;
+    }
+
+    .auth-button:hover {
+      background-color: #006666;
+      transform: translateY(-2px);
+    }
+
+    .auth-button:active {
+      transform: translateY(0);
+    }
+
+    .social-login {
+      margin-top: 30px;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    .social-login p {
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .social-buttons button {
+      background-color: #f2f2f2;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .social-buttons button:hover {
+      background-color: #e6e6e6;
+      border-color: #ccc;
+    }
+
+    .social-buttons img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .bottom-link { /* Novo estilo para links de alternância */
+        margin-top: 20px;
+        font-size: 14px;
+        color: #777;
+    }
+
+    .bottom-link a {
+        color: #008080;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .bottom-link a:hover {
+        color: #006666;
+        text-decoration: underline;
+    }
+
+    .forgot-password {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .forgot-password a {
+      color: #008080;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password a:hover {
+      color: #006666;
+      text-decoration: underline;
+    }
+
+    .alert {
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      display: none;
+      text-align: left;
+    }
+
+    .alert.error {
+      background-color: #ffdddd;
+      color: #d8000c;
+      border: 1px solid #d8000c;
+    }
+
+    .alert.success {
+      background-color: #ddffdd;
+      color: #008000;
+      border: 1px solid #008000;
+    }
+
+    /* Modificações para o Modal de simulação de e-mail */
+    .email-modal {
+        position: fixed; /* Fixo na tela */
+        z-index: 1000; /* Um z-index bem alto para garantir que esteja acima de tudo */
+        left: 0;
+        top: 0;
+        width: 100%; /* Largura total */
+        height: 100%; /* Altura total */
+        background-color: rgba(0,0,0,0.6); /* Fundo mais escuro para destaque */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        visibility: hidden; /* Controla a visibilidade */
+        opacity: 0; /* Controla a opacidade para transição */
+        transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Transição suave */
+    }
+
+    .email-modal.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .email-modal-content {
+        background-color: #fefefe;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.4); /* Sombra mais intensa */
+        width: 80%;
+        max-width: 500px;
+        text-align: left;
+        position: relative;
+        transform: scale(0.95); /* Pequena escala para efeito de entrada */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .email-modal.show .email-modal-content {
+        transform: scale(1);
+    }
+
+    .email-modal-content h2 {
+        color: #008080;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .email-modal-content p {
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    .email-modal-content strong {
+        color: #333;
+    }
+
+    .email-modal-close-button {
+        color: #aaa;
+        font-size: 32px; /* Aumentado o tamanho para facilitar o clique */
+        font-weight: bold;
+        position: absolute;
+        top: 10px; /* Ajustado para melhor posicionamento */
+        right: 15px; /* Ajustado para melhor posicionamento */
+        cursor: pointer;
+        line-height: 1; /* Garante que o X não afete o alinhamento */
+    }
+
+    .email-modal-close-button:hover,
+    .email-modal-close-button:focus {
+        color: #000;
+        text-decoration: none;
+    }
+
+    /* Esconde o formulário de cadastro por padrão */
+    #registerForm {
+        display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-container">
+  <div id="loginForm">
+    <h1>Login</h1>
+    <div id="loginAlertMessage" class="alert"></div>
+
+    <div class="input-group">
+      <label for="loginEmail">E-mail</label>
+      <input type="email" id="loginEmail" placeholder="seu email" required />
+    </div>
+
+    <div class="input-group">
+      <label for="login Password">Senha</label>
+      <input type="password" id="loginPassword" placeholder="****" required />
+    </div>
+
+    <button class="auth-button" onclick="handleLogin()">Entrar</button>
+
+    <div class="forgot-password">
+      <a href="#">Esqueceu a senha?</a>
+    </div>
+
+    <div class="social-login">
+      <p>Ou entre com</p>
+      <div class="social-buttons">
+        <button><img src="https://img.icons8.com/color/20/000000/google-logo.png" alt="Google"> Google</button>
+        <button><img src="https://img.icons8.com/ios-filled/20/000000/facebook-new.png" alt="Facebook"> Facebook</button>
+      </div>
+    </div>
+
+    <div class="bottom-link">
+        Não tem uma conta? <a href="#" onclick="showRegisterForm()">Cadastre-se aqui</a>
+    </div>
+  </div>
+
+  <div id="registerForm">
+    <h1>Cadastre-se</h1>
+    <div id="registerAlertMessage" class="alert"></div>
+
+    <div class="input-group">
+      <label for="registerEmail">E-mail</label>
+      <input type="email" id="registerEmail" placeholder="seuemail@exemplo.com" required />
+    </div>
+
+    <div class="input-group">
+      <label for="registerPassword">Senha</label>
+      <input type="password" id="registerPassword" placeholder="****" required />
+    </div>
+
+    <div class="input-group">
+      <label for="confirmPassword">Confirmar Senha</label>
+      <input type="password" id="confirmPassword" placeholder="****" required />
+    </div>
+
+    <button class="auth-button" onclick="handleRegister()">Criar Conta</button>
+
+    <div class="bottom-link">
+        Já tem uma conta? <a href="#" onclick="showLoginForm()">Faça login</a>
+    </div>
+  </div>
+</div>
+
+<div id="loginEmailSimulationModal" class="email-modal">
+  <div class="email-modal-content">
+    <span class="email-modal-close-button" onclick="closeEmailModalAndRedirect('login')">&times;</span>
+    <h2>Email de Confirmação de Login (Simulação)</h2>
+    <p>Olá <strong id="loggedInUserEmail"></strong>,</p>
+    <p>Confirmamos que você acabou de fazer login com sucesso em sua conta na *Lista de Compras - Supermercado*.</p>
+    <p>
+      Detalhes do login simulado:<br>
+      <strong>Data:</strong> <span id="loginDate"></span><br>
+      <strong>Hora:</strong> <span id="loginTime"></span><br>
+      <strong>IP (Simulado):</strong> 192.168.1.100 (Este é um IP de exemplo e não o seu real)<br>
+      <strong>Dispositivo (Simulado):</strong> Navegador Web
+    </p>
+    <p>Se você não reconhece esta atividade, por favor, entre em contato conosco imediatamente.</p>
+    <p>Obrigado por usar nossos serviços!</p>
+    <p>Atenciosamente,<br>Equipe Supermercado Online</p>
+    <button class="auth-button" style="width: auto; margin: 20px auto 0;" onclick="closeEmailModalAndRedirect('login')">Continuar para a Lista</button>
+  </div>
+</div>
+<div class="card">
+ <a href="file:///E:/BKP%20NOVA%20CASA/bkp/Downloads/supermecado%20(1).html"target="_blank">Ver Projeto</a>
+    </div>
+
+<div id="registerEmailSimulationModal" class="email-modal">
+  <div class="email-modal-content">
+    <span class="email-modal-close-button" onclick="closeEmailModalAndRedirect('register')">&times;</span>
+    <h2>Bem-vindo à Lista de Compras! (Simulação de E-mail)</h2>
+    <p>Olá <strong id="registeredUserEmail"></strong>,</p>
+    <p>Seja muito bem-vindo(a) à nossa plataforma de *Lista de Compras - Supermercado*! 🎉</p>
+    <p>Seu cadastro foi realizado com sucesso. Estamos muito felizes em tê-lo(a) conosco.</p>
+    <p>Explore as funcionalidades, adicione seus produtos e tenha uma experiência de compra mais organizada.</p>
+    <p>Caso precise de ajuda, não hesite em entrar em contato.</p>
+    <p>Atenciosamente,<br>Equipe Supermercado Online</p>
+    <button class="auth-button" style="width: auto; margin: 20px auto 0;" onclick="closeEmailModalAndRedirect('register')">Ir para o Login</button>
+  </div>
+</div>
+
+
+<script>
+  // Simulação de banco de dados de usuários no localStorage
+  // Em um ambiente real, isso seria gerenciado por um backend seguro
+  function getUsers() {
+    const usersJson = localStorage.getItem('appUsers');
+    return usersJson ? JSON.parse(usersJson) : [{email: 'teste@exemplo.com', password: 'senha123'}]; // Adiciona um usuário padrão
+  }
+
+  function saveUsers(users) {
+    localStorage.setItem('appUsers', JSON.stringify(users));
+  }
+
+  function showMessage(alertId, type, message) {
+    const alertBox = document.getElementById(alertId);
+    alertBox.classList.remove('error', 'success');
+    alertBox.classList.add(type);
+    alertBox.innerText = message;
+    alertBox.style.display = 'block';
+  }
+
+  function hideMessage(alertId) {
+    const alertBox = document.getElementById(alertId);
+    if (alertBox) { // Garante que o elemento existe antes de tentar manipular
+      alertBox.style.display = 'none';
+    }
+  }
+
+  function showLoginForm() {
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('registerForm').style.display = 'none';
+    hideMessage('loginAlertMessage');
+    hideMessage('registerAlertMessage');
+  }
+
+  function showRegisterForm() {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('registerForm').style.display = 'block';
+    hideMessage('loginAlertMessage');
+    hideMessage('registerAlertMessage');
+  }
+
+  function showEmailModal(modalId, email, type) {
+    const modal = document.getElementById(modalId);
+    const dateElement = type === 'login' ? document.getElementById('loginDate') : null;
+    const timeElement = type === 'login' ? document.getElementById('loginTime') : null;
+    const userEmailElement = type === 'login' ? document.getElementById('loggedInUserEmail') : document.getElementById('registeredUserEmail');
+
+    if (userEmailElement) userEmailElement.innerText = email;
+
+    if (type === 'login' && dateElement && timeElement) {
+      const now = new Date();
+      dateElement.innerText = now.toLocaleDateString('pt-BR');
+      timeElement.innerText = now.toLocaleTimeString('pt-BR');
+    }
+
+    modal.classList.add('show');
+  }
+
+  function closeEmailModalAndRedirect(actionType) {
+    let modalId;
+    if (actionType === 'login') {
+        modalId = 'loginEmailSimulationModal';
+    } else if (actionType === 'register') {
+        modalId = 'registerEmailSimulationModal';
+    }
+    const modal = document.getElementById(modalId);
+    modal.classList.remove('show');
+
+    setTimeout(() => {
+      if (actionType === 'login') {
+        window.location.href = 'index.html'; // Redireciona para a lista de compras
+      } else if (actionType === 'register') {
+        showLoginForm(); // Volta para o login após o cadastro
+      }
+    }, 350);
+  }
+
+  function handleLogin() {
+    hideMessage('loginAlertMessage');
+    const emailInput = document.getElementById('loginEmail').value.trim();
+    const passwordInput = document.getElementById('loginPassword').value.trim();
+
+    const users = getUsers();
+    const userFound = users.find(user => user.email === emailInput && user.password === passwordInput);
+
+    if (userFound) {
+      showMessage('loginAlertMessage', 'success', 'Login bem-sucedido! Verifique seu e-mail (simulado).');
+      showEmailModal('loginEmailSimulationModal', emailInput, 'login');
+    } else {
+      showMessage('loginAlertMessage', 'error', 'E-mail ou senha incorretos.');
+    }
+  }
+
+  function handleRegister() {
+    hideMessage('registerAlertMessage');
+    const emailInput = document.getElementById('registerEmail').value.trim();
+    const passwordInput = document.getElementById('registerPassword').value.trim();
+    const confirmPasswordInput = document.getElementById('confirmPassword').value.trim();
+
+    if (!emailInput || !passwordInput || !confirmPasswordInput) {
+      showMessage('registerAlertMessage', 'error', 'Por favor, preencha todos os campos.');
+      return;
+    }
+
+    if (passwordInput !== confirmPasswordInput) {
+      showMessage('registerAlertMessage', 'error', 'As senhas não coincidem.');
+      return;
+    }
+
+    const users = getUsers();
+    const userExists = users.some(user => user.email === emailInput);
+
+    if (userExists) {
+      showMessage('registerAlertMessage', 'error', 'Este e-mail já está cadastrado.');
+      return;
+    }
+
+    // Adiciona o novo usuário
+    users.push({ email: emailInput, password: passwordInput });
+    saveUsers(users);
+
+    showMessage('registerAlertMessage', 'success', 'Cadastro realizado com sucesso! Verifique seu e-mail de boas-vindas (simulado).');
+    showEmailModal('registerEmailSimulationModal', emailInput, 'register');
+
+    // Limpa os campos após o cadastro
+    document.getElementById('registerEmail').value = '';
+    document.getElementById('registerPassword').value = '';
+    document.getElementById('confirmPassword').value = '';
+  }
+
+  // Garante que o formulário de login seja exibido por padrão ao carregar a página
+  window.onload = showLoginForm;
+</script>
+
+</body>
+</html>
+
+<script>
+  // Simulação de banco de dados de usuários no localStorage
+  function getUsers() {
+    const usersJson = localStorage.getItem('appUsers');
+    return usersJson ? JSON.parse(usersJson) : [{email: 'teste@exemplo.com', password: 'senha123'}]; // Adiciona um usuário padrão
+  }
+
+  function saveUsers(users) {
+    localStorage.setItem('appUsers', JSON.stringify(users));
+  }
+
+  function showMessage(alertId, type, message) {
+    const alertBox = document.getElementById(alertId);
+    alertBox.classList.remove('error', 'success');
+    alertBox.classList.add(type);
+    alertBox.innerText = message;
+    alertBox.style.display = 'block';
+  }
+
+  function hideMessage(alertId) {
+    const alertBox = document.getElementById(alertId);
+    if (alertBox) {
+      alertBox.style.display = 'none';
+    }
+  }
+
+  function showLoginForm() {
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('registerForm').style.display = 'none';
+    hideMessage('loginAlertMessage');
+    hideMessage('registerAlertMessage');
+  }
+
+  function showRegisterForm() {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('registerForm').style.display = 'block';
+    hideMessage('loginAlertMessage');
+    hideMessage('registerAlertMessage');
+  }
+
+  function showEmailModal(modalId, email, type) {
+    const modal = document.getElementById(modalId);
+    const dateElement = type === 'login' ? document.getElementById('loginDate') : null;
+    const timeElement = type === 'login' ? document.getElementById('loginTime') : null;
+    const userEmailElement = type === 'login' ? document.getElementById('loggedInUserEmail') : document.getElementById('registeredUserEmail');
+
+    if (userEmailElement) userEmailElement.innerText = email;
+
+    if (type === 'login' && dateElement && timeElement) {
+      const now = new Date();
+      dateElement.innerText = now.toLocaleDateString('pt-BR');
+      timeElement.innerText = now.toLocaleTimeString('pt-BR');
+    }
+
+    modal.classList.add('show');
+  }
+
+  // ** MODIFICAÇÃO AQUI **
+  // Removi o setTimeout para que o redirecionamento seja quase instantâneo ao fechar o modal
+  function closeEmailModalAndRedirect(actionType) {
+    let modalId;
+    if (actionType === 'login') {
+        modalId = 'loginEmailSimulationModal';
+    } else if (actionType === 'register') {
+        modalId = 'registerEmailSimulationModal';
+    }
+    const modal = document.getElementById(modalId);
+    modal.classList.remove('show'); // Esconde o modal
+
+    // Se for login, redireciona imediatamente.
+    // Se for registro, volta para o formulário de login.
+    if (actionType === 'login') {
+      window.location.href = 'index.html'; // Redireciona para a página da lista de compras
+    } else if (actionType === 'register') {
+      showLoginForm(); // Volta para o login após o cadastro
+    }
+  }
+  // *********
+
+  function handleLogin() {
+    hideMessage('loginAlertMessage');
+    const emailInput = document.getElementById('loginEmail').value.trim();
+    const passwordInput = document.getElementById('loginPassword').value.trim();
+
+    const users = getUsers();
+    const userFound = users.find(user => user.email === emailInput && user.password === passwordInput);
+
+    if (userFound) {
+      showMessage('loginAlertMessage', 'success', 'Login bem-sucedido! Verifique seu e-mail (simulado).');
+      showEmailModal('loginEmailSimulationModal', emailInput, 'login');
+      // O redirecionamento será chamado pela função closeEmailModalAndRedirect
+      
+    } else {
+      showMessage('loginAlertMessage', 'error', 'E-mail ou senha incorretos.');
+    }
+  }
+
+  function handleRegister() {
+    hideMessage('registerAlertMessage');
+    const emailInput = document.getElementById('registerEmail').value.trim();
+    const passwordInput = document.getElementById('registerPassword').value.trim();
+    const confirmPasswordInput = document.getElementById('confirmPassword').value.trim();
+
+    if (!emailInput || !passwordInput || !confirmPasswordInput) {
+      showMessage('registerAlertMessage', 'error', 'Por favor, preencha todos os campos.');
+      return;
+    }
+
+    if (passwordInput !== confirmPasswordInput) {
+      showMessage('registerAlertMessage', 'error', 'As senhas não coincidem.');
+      return;
+    }
+
+    const users = getUsers();
+    const userExists = users.some(user => user.email === emailInput);
+
+    if (userExists) {
+      showMessage('registerAlertMessage', 'error', 'Este e-mail já está cadastrado.');
+      return;
+    }
+
+    users.push({ email: emailInput, password: passwordInput });
+    saveUsers(users);
+
+    showMessage('registerAlertMessage', 'success', 'Cadastro realizado com sucesso! Verifique seu e-mail de boas-vindas (simulado).');
+
+    showEmailModal('registerEmailSimulationModal', emailInput, 'register');
+
+    document.getElementById('registerEmail').value = '';
+    document.getElementById('registerPassword').value = '';
+    document.getElementById('confirmPassword').value = '';
+  }
+
+  window.onload = showLoginForm;
+
+</script>
